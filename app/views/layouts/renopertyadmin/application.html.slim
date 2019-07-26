@@ -1,0 +1,57 @@
+doctype html
+html
+  head
+    / TODO: faviconを設定する
+    meta[charset='UTF-8']
+    meta[name='viewport' content='width=devise-width, initial-scale=1, shrink-to-fit=no']
+    meta[http-equiv='x-ua-compatible' content='ie=edge']
+    meta[http-equiv='content-language' content='ja']
+    / = favicon_link_tag
+    title
+      | Realestate Community Admin console
+
+    = csrf_meta_tags
+    = stylesheet_link_tag 'mdb'
+    = stylesheet_link_tag 'renopertyadmin/application'
+    = stylesheet_link_tag 'https://use.fontawesome.com/releases/v5.7.2/css/all.css'
+    = stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons'
+    = stylesheet_link_tag "/assets/environment/#{Rails.env}"
+    = yield :js
+    = yield :css
+
+  body.pt-5
+
+    / header tag start
+    header
+      /! fixed top menu start
+      = render :partial => 'layouts/renopertyadmin/top_menu'
+      /! fixed top menu end
+    / header tag end
+
+    /! main contents start
+    main
+      .container-fluid
+        - flash_messages
+        .row
+          .col-3
+            = render :partial => 'layouts/renopertyadmin/side_navi'
+          .col
+            = yield
+    /! main contents end
+
+    / footer tag start
+    = render :partial => 'layouts/renopertyadmin/footer'
+    / footer tag end
+
+    /! common scripts start
+    = javascript_include_tag 'renopertyadmin/application'
+    - if browser.ie?
+      = javascript_include_tag 'mdb4.7.6/mdb.min'
+    - else
+      = javascript_include_tag 'mdb.min'
+    = yield :local_js
+    /! common scripts end
+
+    /! SideNav Initialization
+    javascript:
+      #{flash_messages}
