@@ -1,9 +1,9 @@
 # encoding: utf-8
 # frozen_string_literal: true
 
-require_dependency 'rcadmin/application_controller'
+require_dependency 'renopertyadmin/application_controller'
 
-module Rcadmin
+module Renopertyadmin
   class UsersController < ApplicationController
 
     def index
