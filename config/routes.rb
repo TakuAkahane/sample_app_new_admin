@@ -15,4 +15,6 @@ Renopertyadmin::Engine.routes.draw do
       get 'sub_accounts_index'
     end
   end
+
+  resources :properties
 end
