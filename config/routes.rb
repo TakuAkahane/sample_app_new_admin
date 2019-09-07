@@ -2,6 +2,9 @@
 # frozen_string_literal: true
 
 Renopertyadmin::Engine.routes.draw do
+  root to: 'dashboard#index'
+  get 'dashboard', to: 'dashboard#index'
+
   resources :users, only: %w[index edit update] do
     member do
       get 'sign_in_as_user'

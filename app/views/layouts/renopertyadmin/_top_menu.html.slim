@@ -1,0 +1,14 @@
+nav.navbar.fixed-top.navbar-toggleable-md.navbar-expand-lg.scrolling-navbar.double-nav.white
+  .breadcrumb-dn.mr-auto
+    p
+      | Renoperty Admin console
+  ul.nav.navbar-nav.nav-flex-icons.ml-auto
+    li.nav-item.dropdown
+      a#userDropdown.nav-link.dropdown-toggle.waves-effect.black-text[href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+        i.fa.fa-user
+        span.clearfix.d-none.d-sm-inline-block
+          | Profile
+        .dropdown-menu.dropdown-menu-right[aria-labelledby="userDropdown"]
+        // TODO: 正確なpath設定する
+          = link_to 'Log out', main_app.destroy_admin_user_session_path, class: 'dropdown-item', method: 'delete'
+          = link_to 'My account', main_app.destroy_admin_user_session_path, class: 'dropdown-item'

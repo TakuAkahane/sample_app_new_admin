@@ -1,0 +1,16 @@
+.card.side-menu-contents.p-3
+  ul.collapsible.collapsible-accordion.list-unstyled
+    li
+      = active_link_to root_path, class: 'collapsible-header waves-effect arrow-r py-2 px-3 d-block', :active => [['renopertyadmin/dashboard'], ['index']] do
+        i.fas.fa-tachometer-alt.pr-3
+        | Dashboard
+    li
+      = active_link_to 'javascript:void(0)', class: 'collapsible-header waves-effect arrow-r py-2 px-3 d-block', :active => [['renopertyadmin/properties'], ['index']] do
+        i.far.fa-handshake.pr-3
+        | Bizmatch
+        i.material-icons.rotate-icon.md-grey
+          | keyboard_arrow_down
+      .collapsible-body
+        ul
+          li = active_link_to properties_path, class: 'waves-effect py-2 px-3 d-block' do
+            | Property
