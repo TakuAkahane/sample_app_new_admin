@@ -26,7 +26,7 @@ module Renopertyadmin
     def create_new_property
       new_property = Property.new(properties_params)
       new_property.property_type = convert_property_type
-      new_property.ward_id = convert_ward_id
+      new_property.area_id = convert_area_id
       new_property.layout = convert_layout
       new_property.balcony_direction = convert_balcony_direction
       new_property
@@ -37,8 +37,8 @@ module Renopertyadmin
       properties_params[:property_type].present? ? properties_params[:property_type].split : []
     end
 
-    def convert_ward_id
-      properties_params[:ward_id].present? ? properties_params[:ward_id].split : []
+    def convert_area_id
+      properties_params[:area_id].present? ? properties_params[:area_id].split : []
     end
 
     def convert_layout
@@ -54,7 +54,7 @@ module Renopertyadmin
         :property_name, :prefecture_id, :area, :address, :price, :layout, :exclusive_area_size, :floore_level,
         :completion_date, :property_type, :balcony_size, :balcony_direction, :total_number_of_houses,
         :rights_concening_land, :management_company, :management_fee, :repair_reserve_fund, :handover_date,
-        :transportation, :ward_id
+        :transportation, :area_id
       )
     end
   end

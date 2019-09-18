@@ -21,7 +21,7 @@
         .col-6
           = f.single_dropdown_list :property_type, Property.property_type.options(selected: @property.property_type), {include_blank: 'please_select'}, {required: true}
         .col-6
-          = f.single_dropdown_list :ward_id, Property.ward_id.options(selected: @property.ward_id), {include_blank: 'please_select'}, {required: true}
+          = f.single_dropdown_list :area_id, Property.area_id.options(selected: @property.area_id), {include_blank: 'please_select'}, {required: true}
       .row.px-3
         .col-6
           = f.single_dropdown_list :layout, Property.layout.options(selected: @property.layout), {include_blank: 'please_select'}, {required: true}
@@ -46,7 +46,7 @@
         .col-6
           = f.date_field :handover_date
         .col-6
-          / transportation
+          = f.text_field :transportation
 
   .row.justify-content-md-center.mt-5
     .col-12.col-md-4.mt-2
