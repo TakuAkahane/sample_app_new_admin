@@ -18,7 +18,7 @@ module Renopertyadmin
     end
 
     def index
-      @properties = Property.all
+      @properties = Property.all.paginate(page: params[:page], per_page: 12)
     end
 
     private

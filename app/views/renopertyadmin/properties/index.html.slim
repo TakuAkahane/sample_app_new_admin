@@ -1,6 +1,17 @@
-.m-3
-section
-  .card
-    .card-body
-      table.table.table-striped
-        thead
+/* 新規登録ボタン
+.row
+  .md-form.col-12.mb-4
+    = link_to new_property_path, class: 'btn btn-lg btn-deep-orange m-0 font-middle'
+      i.material-icons.font-extralarge.mr-3.vertical-sub
+        | insert_drive_file
+      span = t('regist_new_property')
+
+/* ヒットしたレコード数表示
+.row
+  .col-12
+    = hit_records(@properties.total_entries.to_s(:delimited))
+
+/* レコード中身表示
+.row
+  - @properties.each do |property|
+    = render partial: 'manage_summary', :locals => {property: property, attention: false}
