@@ -5,6 +5,18 @@
         i.fas.fa-tachometer-alt.pr-3
         | Dashboard
     li
+      = active_link_to 'javascript:void(0)', class: 'collapsible-header waves-effect arrow-r py-2 px-3 d-block', :active => [['renopertyadmin/users', 'renopertyadmin/companies'], ['index']] do
+        i.fa.fa-user.pr-3
+        | User
+        i.material-icons.rotate-icon.md-grey
+          | keyboard_arrow_down
+      .collapsible-body
+        ul
+          li = active_link_to users_path, class: 'waves-effect py-2 px-3 d-block' do
+            | User
+          li = active_link_to companies_path, class: 'waves-effect py-2 px-3 d-block' do
+            | Company
+    li
       = active_link_to 'javascript:void(0)', class: 'collapsible-header waves-effect arrow-r py-2 px-3 d-block', :active => [['renopertyadmin/properties'], ['index']] do
         i.far.fa-handshake.pr-3
         | Bizmatch

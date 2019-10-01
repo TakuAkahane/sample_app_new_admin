@@ -1,0 +1,31 @@
+= form_for @company, url: get_company_form_for_url(@company), builder: FormHelper::OriginalFormBuilder do |f|
+  .card.px-3.px-md-4.form-card.mt-2.pt-5
+    .pl-0.pl-sm-2.border-bottom.mb-5
+      .row.px-3
+        .col-6
+          = f.text_field :address
+        .col-6
+          = f.single_dropdown_list :ward_id, Company.ward_id.options(selected: @company.ward_id), {include_blank: 'please_select'}, {required: true}
+    .pl-0.pl-sm-2
+      .row.px-3
+        .col-6
+          = f.text_field :name
+        .col-6
+          = f.text_field :tel
+      .row.px-3
+        .col-6
+          = f.single_dropdown_list :public, Company.public.options(selected: @company.public), {include_blank: 'please_select'}, {required: true}
+        .col-6
+          = f.text_field :establishment
+      .row.px-3
+        .col-6
+          = f.text_area :description
+        .col-6
+          = f.single_checkbox :deleted, 'deleted', { line_class: 'mx-auto mb-4'}
+      .row.px-3
+        .col-6
+          = f.single_dropdown_list :company_size_id, Company.company_size_id.options(selected: @company.company_size_id), {include_blank: 'please_select'}, {required: true}
+
+  .row.justify-content-md-center.mt-5
+    .col-12.col-md-4.mt-2
+      = f.button t('Regist'), type: 'submit', class: 'btn btn-deep-orange btn-block btn-lg font-extralarge'

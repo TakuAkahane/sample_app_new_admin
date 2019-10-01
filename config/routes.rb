@@ -19,5 +19,7 @@ Renopertyadmin::Engine.routes.draw do
     end
   end
 
+  resources :companies
+
   resources :properties
 end
