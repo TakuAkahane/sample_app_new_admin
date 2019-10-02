@@ -24,7 +24,7 @@ module Renopertyadmin
     private
 
     def create_new_property
-      new_property = Property.new(properties_params)
+      new_property = Property.new(property_params)
       new_property.property_type = convert_property_type
       new_property.area_id = convert_area_id
       new_property.layout = convert_layout
@@ -34,22 +34,22 @@ module Renopertyadmin
 
     # Serializeに対応するため、型をconvert
     def convert_property_type
-      properties_params[:property_type].present? ? properties_params[:property_type].split : []
+      property_params[:property_type].present? ? property_params[:property_type].split : []
     end
 
     def convert_area_id
-      properties_params[:area_id].present? ? properties_params[:area_id].split : []
+      property_params[:area_id].present? ? property_params[:area_id].split : []
     end
 
     def convert_layout
-      properties_params[:layout].present? ? properties_params[:layout].split : []
+      property_params[:layout].present? ? property_params[:layout].split : []
     end
 
     def convert_balcony_direction
-      properties_params[:balcony_direction].present? ? properties_params[:balcony_direction].split : []
+      property_params[:balcony_direction].present? ? property_params[:balcony_direction].split : []
     end
 
-    def properties_params
+    def property_params
       params.required(:property).permit(
         :property_name, :prefecture_id, :area, :address, :price, :layout, :exclusive_area_size, :floore_level,
         :completion_date, :property_type, :balcony_size, :balcony_direction, :total_number_of_houses,

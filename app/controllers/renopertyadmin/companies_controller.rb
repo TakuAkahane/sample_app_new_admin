@@ -9,7 +9,12 @@ module Renopertyadmin
     end
 
     def create
-      @company.attributes = company_params
+      @company = Company.new(company_params)
+      if @company.save
+        redirect_to companies_path
+      else
+        render :new
+      end
     end
 
     def index
@@ -20,8 +25,8 @@ module Renopertyadmin
 
     def company_params
       params.required(:company).permit(
-        :address, :name, :tel, :establishment, :description, :deleted,
-        ward_id: [], public: [], company_size_id: []
+        :address, :name, :tel, :establishment, :description, :deleted, :ward_id,
+        :public, :company_size_id
       )
     end
 
