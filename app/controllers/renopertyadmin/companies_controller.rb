@@ -17,6 +17,9 @@ module Renopertyadmin
       end
     end
 
+    def edit
+    end
+
     def index
       @companies = Company.all.paginate(page: params[:page], per_page: 30)
     end

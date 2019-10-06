@@ -1,0 +1,40 @@
+/* 新規登録ボタン
+.row
+  .md-form.col-12.mb-4
+    = link_to new_user_path, class: 'btn btn-lg btn-deep-orange m-0 font-middle'
+      i.material-icons.font-extralarge.mr-3.vertical-sub
+        | insert_drive_file
+      span = t('regist_new_user')
+
+/* ヒットしたレコード数表示
+.row
+  .col-12
+    = hit_records(@users.total_entries.to_s(:delimited))
+
+/* レコード中身表示
+.m-3
+section
+  .card
+    .card-body
+      table.table.table-striped
+        thead.mdb-color.darken-3
+          tr.text-white
+            th
+              | #{t('name')}
+            th
+              | #{t('status')}
+            th
+              | #{t('edit')}
+        tbody
+          - @users.each do |user|
+            tr
+              td[scope='row']
+                =<> "#{user.name}"
+              td
+                = delete_display_setting(user.deleted)
+              td.text-center
+                = link_to '', edit_user_path(user, back_to_param), class: 'i fa fa-wrench fa-lg'
+
+.row
+  - @users.each do |user|
+    = render partial: 'manage_summary', :locals => {property: property, attention: false}
