@@ -29,7 +29,7 @@ section
           - @companies.each do |company|
             tr
               td[scope='row']
-                =<> "#{compnay.name}"
+                =<> "#{company.name}"
               td
                 = delete_display_setting(company.deleted)
               td.text-center
@@ -37,4 +37,4 @@ section
 
 .row
   - @companies.each do |company|
-    = render partial: 'manage_summary', :locals => {property: property, attention: false}
+    = render partial: 'manage_summary', :locals => {company: company, attention: false}

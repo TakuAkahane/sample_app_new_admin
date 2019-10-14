@@ -9,5 +9,10 @@ module Renopertyadmin
 
     # デフォルトレイアウトの指定
     layout 'renopertyadmin/application'
+
+    # 起点復元リダイレクトの施策
+    include Redirectable
+    before_action :keep_back_to_path
+    helper_method :back_to_param, :back_to_hidden_tag, :back_to_path
   end
 end
