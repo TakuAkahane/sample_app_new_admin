@@ -21,9 +21,6 @@
         .col-6
           = f.text_area :description
         .col-6
-          = f.single_checkbox :deleted, 'deleted', { line_class: 'mx-auto mb-4'}
-      .row.px-3
-        .col-6
           = f.single_dropdown_list :company_size_id, Company.company_size_id.options(selected: @company.company_size_id), {include_blank: 'please_select'}, {required: true}
 
   .row.justify-content-md-center.mt-5
