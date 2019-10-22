@@ -18,6 +18,18 @@ module Renopertyadmin
     end
 
     def edit
+      @company = Company.find(params[:id])
+    end
+
+    def update
+      @company = Company.find(params[:id])
+      if @company.update_attributes!(company_params)
+        flash[:success] = t('msg.update_successful', v: t('company'))
+        redirect_to companies_path
+      else
+        flash.now[:error] = t('msg.error_in_the_input_content')
+        render 'new'
+      end
     end
 
     def index
